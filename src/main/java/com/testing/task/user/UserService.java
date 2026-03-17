@@ -1,5 +1,6 @@
 package com.testing.task.user;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,6 +26,8 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+    @Transactional
     public User getUserById(Long id){
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
     }
