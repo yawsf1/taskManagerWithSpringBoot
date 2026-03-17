@@ -10,7 +10,7 @@ Une API REST construite avec Spring Boot permettant de gérer des utilisateurs e
 - **Spring Boot 3**
 - **Spring Data JPA / Hibernate**
 - **Spring Validation**
-- **PostgreSQL** (ou MySQL)
+- **MySQL**
 - **Maven**
 
 ---
