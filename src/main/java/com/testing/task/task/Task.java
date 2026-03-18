@@ -14,12 +14,7 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "La tache est obligatoire !")
-    @Size(min = 3, max = 500, message = "La tache doit etre entre 3 et 500 characters")
     private String task;
-
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

@@ -1,7 +1,6 @@
 package com.testing.task.user;
 
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.testing.task.task.Task;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
@@ -17,16 +16,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "nom doit est obligatoire")
-    @Size(min = 3, max = 500, message = "Nom doit etre entre 3 et 500")
     private String nom;
-
-    @Min(value = 18, message = "l'age doit etre superieur a 18")
-    @Max(value = 140, message = "Invalid age")
     private int age;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Task> tasks;
 

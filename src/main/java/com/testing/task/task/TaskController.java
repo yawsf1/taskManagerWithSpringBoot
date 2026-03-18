@@ -13,12 +13,13 @@ public class TaskController {
     TaskController(TaskService taskService){
         this.taskService = taskService;
     }
+
     @GetMapping
-    public List<Task> getAllTasks(){
+    public List<TaskResponse> getAllTasks(){
         return taskService.getAllTasks();
     }
     @GetMapping(path = "{id}")
-    public Task getTaskById(@PathVariable Long id){
+    public TaskResponse getTaskById(@PathVariable Long id){
         return taskService.getTaskById(id);
     }
     @DeleteMapping(path = "{id}")
@@ -26,7 +27,7 @@ public class TaskController {
         taskService.deleteTask(id);
     }
     @PutMapping(path = "{id}")
-    public void updateTask(@PathVariable Long id, @Valid @RequestBody Task task){
+    public void updateTask(@PathVariable Long id, @Valid @RequestBody TaskRequest task){
         taskService.modifyTask(id, task);
     }
 }
